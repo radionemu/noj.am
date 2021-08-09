@@ -4,7 +4,7 @@ int d(int n);
 
 int main(){
     int input;
-    ascanf ("%d", &input);
+    scanf ("%d", &input);
     for(int i = 1; i < input; i++){
         if (d(i) == input){
             printf("%d", i);
