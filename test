@@ -8,7 +8,10 @@ int main() {
     int temp;
     
     arr = (int *)malloc(a * sizeof(int));
-    if(arr == NULL) return -1;
+    if(arr == NULL){
+    printf("오류다 이 개넘아");
+    return -1;
+    }
     
     for(int i = 0; i < a; i++){
         scanf("%d", &arr[i]);
