@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int a;
+    scanf("%d", &a);
+    int *arr;
+    int temp;
+    
+    arr = (int *)malloc(a * sizeof(int));
+    if(arr == NULL) return -1;
+    
+    for(int i = 0; i < a; i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    
+    for(int i =0; i<a-1; i++){
+        for(int j = i+1; j<a; j++){
+            if(arr[i] < arr[j]);
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    
+    for(int i = 0; i < a; i++){
+        printf("%2d", arr[i]);
+    }
+    printf("\n");
+    
+    int sel;
+    scanf("%d", &sel);
+    int mx = a-1, mn = 0;
+    while(mn <= mx){
+        int md = (mx+mn)/2;         
+        if(sel == arr[md])printf("%2d", md);
+        else if(sel < arr[md]) mx = md -1;
+        else if(sel > arr[md]) mn = md +1;
+    }
+
+    free(arr);
+    return 0;
+}
