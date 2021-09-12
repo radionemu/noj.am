@@ -20,7 +20,7 @@ int main() {
     
     for(int i =0; i<a; i++){
         int min =10;
-        in min_index;
+        int min_index;
         for(int j = i; j<a; j++){
             if(arr[j]<min){
                 min = arr[j];
@@ -42,7 +42,10 @@ int main() {
     int mx = a-1, mn = 0;
     while(mn <= mx){
         int md = (mx+mn)/2;         
-        if(sel == arr[md])printf("%2d", md);
+        if(sel == arr[md]){
+            printf("%2d", md);
+            break;   
+        }
         else if(sel < arr[md]) mx = md -1;
         else if(sel > arr[md]) mn = md +1;
     }
