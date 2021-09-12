@@ -18,13 +18,18 @@ int main() {
     }
     
     
-    for(int i =0; i<a-1; i++){
-        for(int j = i+1; j<a; j++){
-            if(arr[i] < arr[j]);
-            temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+    for(int i =0; i<a; i++){
+        int min =10;
+        in min_index;
+        for(int j = i; j<a; j++){
+            if(arr[j]<min){
+                min = arr[j];
+                min_index = j;
+            }
         }
+        int temp = arr[min_index];
+        arr[min_index] = arr[i];
+        arr[i] = temp;
     }
     
     for(int i = 0; i < a; i++){
