@@ -1,0 +1,87 @@
+package hw_1;
+
+import java.util.Scanner;
+
+public class homework {
+
+	public static Scanner scanner = new Scanner(System.in);
+	
+	public static void main(String args[]) {
+		System.out.println("202111345 이정빈");
+		
+		mmenu : while(true) {
+			System.out.println("1) 복리 예금 계산기 2) 구구단 출력하기 3) 종료");
+			System.out.print("메뉴를 선택하세요 : ");
+			int menu = scanner.nextInt();
+			
+			switch(menu) {
+			case 1:
+				//
+				Money();
+				break;
+			case 2:
+				//
+				Calc();
+				break;
+			case 3:
+				//
+				System.out.println("이용해주셔서 감사합니다.");
+				break mmenu;
+			default:
+				System.out.println("올바른 입력값을 써주십시오.");
+				break;
+			}
+		}
+		
+		scanner.close();
+	}
+	
+	public static void Money() {
+		System.out.println("====== 복리 예금 계산기 ======");
+		System.out.print("원금을 입력하세요 : ");
+		int o_money = scanner.nextInt();
+		double money = (double)o_money;
+		System.out.print("연이율을 입력하세요 : ");
+		double interest = scanner.nextDouble();
+		double f_money = 0;
+		
+		System.out.println("--------------------");
+		System.out.println("년도수	원리금");
+		System.out.println("--------------------");
+		
+		for(int i =1; f_money <= (double)o_money*2; i++) {
+			f_money = money * (1+interest/100D);
+			System.out.printf("%d	%.2f", i, f_money);
+			System.out.println();
+			money = f_money;
+		}
+		System.out.println("--------------------");
+		
+	}
+	
+	public static void Calc() {
+		int row;
+		int j = 2;
+		int s = 0;
+		
+		while(true) {
+			System.out.print("출력 단수 : ");
+			row = scanner.nextInt();
+			if(row < 1 || row > 8)	System.out.println("출력 단수 입력이 잘못되었습니다.");
+			else break;
+		}
+
+		for(int i = 0; i <= (9/row); i++) {
+			for(int x = 1; x<=9; x++) {
+				for(s = j; (s < j + row) && (s < 10); s++) {
+					System.out.print((s) + "*" + x + "=" + String.format("%2d", s*x));
+					System.out.print("    ");
+				}				
+				System.out.println();
+			}
+			if(s >= 10) break;
+			System.out.println();
+			j += row;
+		}
+	}
+}
